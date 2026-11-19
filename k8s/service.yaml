@@ -10,5 +10,5 @@ spec:
   selector:
     app: prod #pod labels
   ports:
-    targetPort: 5000 #if this doesnt work, at the start of line give -
+  - targetPort: 5000 #if this doesnt work, at the start of line give -
     port: 80
