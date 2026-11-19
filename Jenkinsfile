@@ -38,8 +38,8 @@ pipeline {
         stage('Update K8s Manifest In GitHub Repo - Image Version') {
             when {branch 'main'}
             steps {
-                script {
-                    withCredentials([usernamePassword: 'github-creds', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_TOKEN']) {
+                script {        
+                    withCredentials([usernamePassword(credentialsId: 'github-creds', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_TOKEN')]) {
                         sh """
                         set -e
                         git config user.name '$GIT_USER'
