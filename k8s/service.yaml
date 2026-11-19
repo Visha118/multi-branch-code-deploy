@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ecommerce-app-service
+  namespace: prod
+  labels:
+    key: value #service labels
+spec:
+  type: LoadBalancer
+  selector:
+    app: prod #pod labels
+  ports:
+    targetPort: 5000 #if this doesnt work, at the start of line give -
+    port: 80

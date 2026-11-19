@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-app-deployment
+  namespace: prod
+  labels:
+    key: value
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: prod #matching pod labels
+  template:
+    metadata:
+      labels:
+        app: prod #pod labels
+    spec:
+      containers:
+      - name: ecommerce-app-container
+        image: vrecess/multibranch-flask-app:latest
+        ports:
+        - containerPort: 5000
